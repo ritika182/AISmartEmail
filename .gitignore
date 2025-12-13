@@ -1,0 +1,6 @@
+# Ignore raw datasets
+data/
+
+# Ignore large CSVs (except final one if small)
+*.csv
+!data/processed/final_email_dataset.csv
