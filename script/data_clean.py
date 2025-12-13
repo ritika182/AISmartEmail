@@ -19,7 +19,6 @@ def clean_text(text):
 
 frames = []
 
-# ================= COMPLAINTS =================
 complaints = pd.read_csv(
     f"{RAW_PATH}/complaints.csv",
     encoding="latin1",
@@ -41,7 +40,7 @@ complaints["urgency"] = "high"
 
 frames.append(complaints)
 
-# ================= REQUESTS =================
+
 requests = pd.read_csv(
     f"{RAW_PATH}/Request.csv",
     encoding="latin1"
@@ -61,7 +60,7 @@ requests["urgency"] = "medium"
 
 frames.append(requests)
 
-# ================= FEEDBACK =================
+
 feedback = pd.read_csv(
     f"{RAW_PATH}/feddback.csv",
     encoding="latin1"
@@ -78,13 +77,13 @@ feedback["urgency"] = "low"
 
 frames.append(feedback)
 
-# ================= SPAM (FIXED PROPERLY) =================
+
 spam = pd.read_csv(
     f"{RAW_PATH}/spam.csv",
     encoding="latin1"
 )
 
-# assume: column 0 = label (ham/spam), column 1 = message
+
 spam = spam.iloc[:, 1].to_frame(name="email_text")
 
 spam["email_text"] = spam["email_text"].apply(clean_text)
@@ -100,9 +99,8 @@ spam["urgency"] = "low"
 
 frames.append(spam)
 
-# ================= FINAL MERGE =================
+
 final_df = pd.concat(frames, ignore_index=True)
-# Limit final dataset size for GitHub
 MAX_ROWS = 4000
 if len(final_df) > MAX_ROWS:
     final_df = final_df.sample(n=MAX_ROWS, random_state=42)
