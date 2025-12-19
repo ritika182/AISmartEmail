@@ -25,8 +25,8 @@ complaints = pd.read_csv(
     low_memory=False
 )
 
-# take first column as text
-complaints = complaints.iloc[:, 0].to_frame(name="email_text")
+
+complaints = complaints.iloc[:, 3].to_frame(name="email_text")
 complaints["email_text"] = complaints["email_text"].apply(clean_text)
 
 complaints = complaints.dropna()
@@ -38,6 +38,7 @@ complaints = complaints.sample(n=complaint_sample_size, random_state=42)
 complaints["category"] = "complaint"
 complaints["urgency"] = "high"
 
+
 frames.append(complaints)
 
 
@@ -46,7 +47,7 @@ requests = pd.read_csv(
     encoding="latin1"
 )
 
-requests = requests.iloc[:, 0].to_frame(name="email_text")
+requests = requests.iloc[:, 3].to_frame(name="email_text")
 requests["email_text"] = requests["email_text"].apply(clean_text)
 
 requests = requests.dropna()
@@ -101,15 +102,13 @@ frames.append(spam)
 
 
 final_df = pd.concat(frames, ignore_index=True)
-MAX_ROWS = 4000
-if len(final_df) > MAX_ROWS:
-    final_df = final_df.sample(n=MAX_ROWS, random_state=42)
+
 
 final_df.to_csv(f"{PROCESSED_PATH}/final_email_dataset.csv", index=False)
 
-print("✅ Final dataset created successfully")
-print("📊 Total rows:", len(final_df))
-print("📁 Saved at: data/processed/final_email_dataset.csv")
+print(" Final dataset created successfully")
+print(" Total rows:", len(final_df))
+print(" Saved at: data/processed/final_email_dataset.csv")
 
 print("\nUrgency distribution:")
 print(final_df["urgency"].value_counts())
