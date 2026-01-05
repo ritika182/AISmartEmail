@@ -81,4 +81,39 @@ Results:
 -Low training and evaluation loss
 - Supports all categories: Complaint, Request, Feedback , Spam
 
+ Milestone 3: Urgency Detection & Scoring
 
+ Objective:
+Implement an automated system to predict urgency levels and prioritize critical emails.
+
+Approach:
+
+1) Machine Learning–Based Urgency Prediction
+- TF-IDF feature extraction
+- Logistic Regression model trained to classify:
+  - High
+  - Medium
+  - Low urgency
+- Stratified train-test split to handle class imbalance
+
+ 2) Keyword-Based Urgency Detection
+- Rule-based detection using urgent keywords such as:
+urgent, asap, immediately, refund, failed, error, issue, delay
+
+3️) Hybrid Decision Logic
+- Final urgency is determined by combining:
+- Keyword-based rules
+- ML model predictions
+- Improves recall for high-urgency emails and avoids missing critical issues
+
+
+Evaluation Metrics:
+The urgency prediction system was evaluated using:
+Confusion Matrix
+Weighted F1-Score
+
+Results:
+Weighted F1-Score: 0.93
+High-urgency emails achieved very high recall, ensuring minimal critical email misses
+Medium-urgency emails were sometimes escalated to high urgency intentionally for safety
+Overall model performance is strong and suitable for enterprise use
