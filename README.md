@@ -1,5 +1,8 @@
- Project Title:AI Powered Smart Email Classifier for Enterprises
+ 
 
+Project Title:AI Powered Smart Email Classifier for Enterprises
+Deployment link: https://aismartemailclassifier.onrender.com
+ 
 An AI-based system that automatically classifies enterprise emails into meaningful categories and assigns urgency levels using Natural Language Processing (NLP) and Machine Learning.
 
  Project Description:
