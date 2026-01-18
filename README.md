@@ -100,7 +100,7 @@ Approach:
 - Rule-based detection using urgent keywords such as:
 urgent, asap, immediately, refund, failed, error, issue, delay
 
-3️) Hybrid Decision Logic
+ 3️) Hybrid Decision Logic
 - Final urgency is determined by combining:
 - Keyword-based rules
 - ML model predictions
@@ -116,4 +116,30 @@ Results:
 Weighted F1-Score: 0.93
 High-urgency emails achieved very high recall, ensuring minimal critical email misses
 Medium-urgency emails were sometimes escalated to high urgency intentionally for safety
-Overall model performance is strong and suitable for enterprise use
+Overall model performance is strong and suitable for enterprise use.
+
+Milestone 4: Dashboard & Visualization
+
+Objective: Deliver an enterprise-ready interactive solution.
+
+Features:
+Real-time email classification and routing
+Category-based queues with urgency indicators
+Clickable filters for category and urgency
+Agent assignment and resolution tracking
+Auto-refreshing dashboard
+Analytics using bar and pie charts
+
+Technology:
+Streamlit for UI
+Matplotlib for visual analytics
+
+Testing & Quality Assurance:
+Unit Test Plan created for all major modules
+Defect Tracker maintained across sprints
+Defects categorized as:Logical ,User Interface,Maintainability,Standards
+All critical defects resolved within sprint timelines
+
+Deployment:
+The application is designed for cloud deployment and is currently being deployed using a free cloud platform.
+Deployment platform: Render
