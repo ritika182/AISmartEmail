@@ -1,5 +1,4 @@
 
 data/raw/
 *.csv
-models/
 !data/processed/final_email_dataset.csv 
